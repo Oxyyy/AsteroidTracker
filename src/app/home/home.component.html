@@ -1,0 +1,25 @@
+<content>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .home-content {
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: lightsteelblue;
+            z-index: 10;
+        }
+    </style>
+    <div class="home-content">
+        <h1>Explore the Cosmos</h1>
+        <p>Discover asteroid data like never before</p>
+        <p>🌍 Near Earth Objects: {{ nearEarthObjectCount }}</p>
+        <p>🚀 Close Approaches: {{ closeApproachCount }}</p>
+        <p>📅 Last Updated: {{ lastUpdated }}</p>
+    </div>
+</content>
