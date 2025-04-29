@@ -38,12 +38,15 @@ export class HomeComponent implements AfterViewInit {
       this.closeApproachCount = data.close_approach_count;
       this.lastUpdated = data.last_updated;
 
-      this.renderer.domElement.addEventListener('click', (event) => this.onClick(event));
+      
     });
+
+    
 
     //Les Initialisations de ThreeJS
     this.initThreeJS();
     this.animate();
+    this.renderer.domElement.addEventListener('click', (event) => this.onClick(event));
   }
 
 
@@ -94,6 +97,7 @@ export class HomeComponent implements AfterViewInit {
     });
   }
 
+  //La partie EasterEgg nulle
   private onClick(event: MouseEvent): void {
     
     const canvasBounds = this.renderer.domElement.getBoundingClientRect();
@@ -101,7 +105,6 @@ export class HomeComponent implements AfterViewInit {
     this.mouse.x = ((event.clientX - canvasBounds.left) / canvasBounds.width) * 2 - 1;
     this.mouse.y = -((event.clientY - canvasBounds.top) / canvasBounds.height) * 2 + 1;
 
-    // Détecter les objets sous la souris
     this.raycaster.setFromCamera(this.mouse, this.camera);
     const intersects = this.raycaster.intersectObject(this.earth);
 

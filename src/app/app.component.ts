@@ -16,7 +16,7 @@ export class AppComponent {
   apiService = inject(ApiService);
 
   ngOnInit() {
-    this.apiService.getAsteroids().subscribe(data => {
+    this.apiService.getTodayAsteroids().subscribe(data => {
       console.log(data);
     });
   }

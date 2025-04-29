@@ -1,1 +1,56 @@
-<p>today works!</p>
+<!--  <p>today works!</p>
+<p>Element Count : {{ elementCount }}</p> -->
+
+<!--
+<h2>Asteroids Today</h2>
+<p>Total: {{ elementCount }}</p>
+
+<ul>
+  @for (asteroid of asteroids; track asteroid.name) {
+    <li>
+      <strong>{{ asteroid.name }}</strong> - 
+      Diameter: {{ asteroid.estimated_diameter_m.min | number:'1.2-2' }} m 
+      to {{ asteroid.estimated_diameter_m.max | number:'1.2-2' }} m -
+      {{ asteroid.close_approach.date_full }} -
+      {{ asteroid.close_approach.relative_velocity_km_s | number:'1.2-2' }} km/s -
+      Miss Distance: {{ asteroid.close_approach.miss_distance.lunar | number:'1.2-2' }} lunar /
+      {{ asteroid.close_approach.miss_distance.astronomical | number:'1.4-4' }} au -
+      Orbiting: {{ asteroid.close_approach.orbiting_body }}
+    </li>
+  }
+</ul> -->
+
+
+<h2>Asteroids Today</h2>
+<p>Total: {{ elementCount }}</p>
+
+<div class="sort-container">
+  <span class="filter-text">Filters :</span>
+  <div class="sort-buttons">
+    <button (click)="sortBy('name')">Name</button>
+    <button (click)="sortBy('distance')">Distance</button>
+    <button (click)="sortBy('velocity')">Velocity</button>
+    <button (click)="sortBy('diameter')">Diameter</button>
+  </div>
+</div>
+
+<div class="asteroid-grid">
+  @for (asteroid of asteroids; track asteroid.name) {
+    <div class="asteroid-card">
+      <h3>{{ asteroid.name }}</h3>
+      <p><strong>Diameter:</strong> {{ asteroid.estimated_diameter_m.min | number:'1.2-2' }} m 
+      to {{ asteroid.estimated_diameter_m.max | number:'1.2-2' }} m</p>
+      
+      <p><strong>Close Approach:</strong> {{ asteroid.close_approach.date_full }}</p>
+      
+      <p><strong>Velocity:</strong> {{ asteroid.close_approach.relative_velocity_km_s | number:'1.2-2' }} km/s</p>
+      
+      <p><strong>Miss Distance:</strong> 
+        {{ asteroid.close_approach.miss_distance.lunar | number:'1.2-2' }} Lunar /
+        {{ asteroid.close_approach.miss_distance.astronomical | number:'1.4-4' }} AU
+      </p>
+
+      <p><strong>Orbiting Body:</strong> {{ asteroid.close_approach.orbiting_body }}</p>
+    </div>
+  }
+</div>

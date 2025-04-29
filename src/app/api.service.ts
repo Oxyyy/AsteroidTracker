@@ -11,7 +11,7 @@ export class ApiService {
 
   constructor() { }
 
-  getAsteroids(): Observable<any> {
+  getTodayAsteroids(): Observable<any> {
     return this.httpClient.get('https://www.neowsapp.com/rest/v1/feed/today');
   }
   
