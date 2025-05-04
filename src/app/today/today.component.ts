@@ -18,12 +18,7 @@ export class TodayComponent {
 
   constructor(private apiService: ApiService) { }
 
-  //   ngOnInit() {
-  //   this.apiService.getTodayAsteroids().subscribe((data:any) => {
-  //     this.elementCount = data.element_count;
-  //   });
-  // }
-
+  // faire un tri sur les asteroids
   sortBy(criteria: 'name' | 'distance' | 'velocity' | 'diameter') {
     switch (criteria) {
       case 'name':
@@ -50,10 +45,11 @@ export class TodayComponent {
     this.apiService.getTodayAsteroids().subscribe((data: any) => {
       this.elementCount = data.element_count;
 
-      const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+      const today = new Date().toISOString().split('T')[0];
       const asteroidsData = data.near_earth_objects[today] || [];
 
-
+      // On chope tous les asteroids de la journée
+      // On les map pour ne garder que les données qui nous intéressent
       this.asteroids = asteroidsData.map((asteroid: any) => ({
         name: asteroid.name,
         estimated_diameter_m: {

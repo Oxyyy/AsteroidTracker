@@ -12,6 +12,8 @@ import { Raycaster, Vector2 } from 'three';
 })
 export class HomeComponent implements AfterViewInit {
   @ViewChild('threejsCanvas', { static: true }) canvasRef!: ElementRef;
+
+  //Initialisation de variables pour ThreeJS
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
@@ -24,6 +26,7 @@ export class HomeComponent implements AfterViewInit {
   private raycaster = new Raycaster();
   private mouse = new Vector2();
 
+  //Initialisation de variables pour les stats
   nearEarthObjectCount!: number;
   closeApproachCount!: number;
   lastUpdated!: string;
@@ -43,14 +46,15 @@ export class HomeComponent implements AfterViewInit {
 
     
 
-    //Les Initialisations de ThreeJS
+    //Les Initialisations du rendu ThreeJS
     this.initThreeJS();
     this.animate();
     this.renderer.domElement.addEventListener('click', (event) => this.onClick(event));
   }
 
 
-  //La Partie Dessin
+  //La Partie Dessin ThreeJS
+  //Rien a voir avec angular mais vu que mon API ne contient pas d'image, il me fallait bien un ptit truc beau
   private initThreeJS(): void {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);

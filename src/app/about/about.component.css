@@ -1,0 +1,18 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.home-content {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: lightsteelblue;
+    z-index: 10;
+}
+.home-content a {
+    color: lightsteelblue;
+    text-decoration: underline;
+}
